@@ -60,6 +60,30 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatbotInput = document.getElementById('chatbot-input');
   const chatbotSend = document.getElementById('chatbot-send');
 
+  const form = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar la redirección de Formsubmit
+
+    // Enviar el formulario usando AJAX
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+    })
+    .then(response => {
+      if (response.ok) {
+        // Mostrar el mensaje de éxito
+        formSuccess.classList.remove('hidden');
+        form.reset(); // Limpiar el formulario
+      } else {
+        // Manejar errores (opcional)
+        console.error('Error al enviar el formulario');
+        alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+      }
+    });
+  });
+
   // Hacer visible el chatbot
   setTimeout(() => {
     chatbotContainer.style.opacity = '1';

@@ -54,14 +54,18 @@
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl font-bold mb-4">Contacto</h2>
       <p class="mb-6">¿Tienes una consulta? Completa el formulario y te responderemos a la brevedad.</p>
-      <form id="contactForm" class="max-w-md mx-auto">
+      <form id="contactForm" action="https://formsubmit.co/luismunozse@gmail.com" method="POST" class="max-w-md mx-auto">
         <input id="nombre" type="text" placeholder="Tu nombre completo" class="w-full px-4 py-2 mb-4 border rounded" required>
         <input id="telefono" type="tel" placeholder="Tu número de teléfono" class="w-full px-4 py-2 mb-4 border rounded" required>
         <input id="email" type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-2 mb-4 border rounded" required>
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_honey" style="display:none">
+        <!-- Desactivar captcha de Formsubmit -->
+        <input type="hidden" name="_captcha" value="false">
         <textarea id="message" placeholder="Tu mensaje" class="w-full px-4 py-2 mb-4 border rounded" required></textarea>
         <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">Enviar Mensaje</button>
+        <!-- Contenedor para el mensaje de éxito -->
         <div id="formSuccess" class="hidden mt-4 text-green-600 font-semibold">¡Gracias! Tu mensaje ha sido enviado.</div>
-        <div id="formError" class="hidden mt-4 text-red-600 font-semibold">Por favor, completa todos los campos correctamente.</div>
       </form>
     </div>
   </section>

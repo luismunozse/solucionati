@@ -174,3 +174,33 @@ html {
     height: 250px; /* Más pequeño en móviles */
   }
 }
+
+/* Estilos para el mensaje de éxito de Formsubmit (adaptado) */
+.formsubmit-success {
+  margin-top: 1rem;
+  color: #22c55e; /* text-green-600 */
+  font-weight: 600; /* font-semibold */
+}
+
+/* Estilos para el mensaje de error de Formsubmit (adaptado) */
+.formsubmit-error {
+  margin-top: 1rem;
+  color: #dc2626; /* text-red-600 */
+  font-weight: 600; /* font-semibold */
+}
+
+/* Estilos para el mensaje de éxito */
+#formSuccess {
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
+
+/* Ocultar el mensaje inicialmente */
+.hidden {
+  display: none;
+}
