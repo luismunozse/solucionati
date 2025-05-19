@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolucionaTI - Soluciones Informáticas</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">SolucionaTI</h1>
+      <nav>
+        <a href="#servicios" class="mx-2 text-gray-700 hover:text-blue-600 nav-link">Servicios</a>
+        <a href="#nosotros" class="mx-2 text-gray-700 hover:text-blue-600 nav-link">Nosotros</a>
+        <a href="#contacto" class="mx-2 text-gray-700 hover:text-blue-600 nav-link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container mx-auto px-4 py-16 flex flex-col items-center text-center">
+    <h2 class="text-4xl font-extrabold mb-4">Tecnología que impulsa tu negocio</h2>
+    <p class="text-lg mb-8 max-w-xl">
+      Transformamos desafíos en oportunidades con soluciones informáticas integrales: soporte técnico especializado, consultoría estratégica, implementación de servidores, desarrollo web y software a medida. Tu socio tecnológico de confianza.
+    </p>
+    <a href="#contacto" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-blue-700 transition">Solicitar Asesoría</a>
+  </main>
+  <section id="servicios" class="bg-white py-12">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div>
+        <div class="text-blue-600 text-4xl mb-2">🛠️</div>
+        <h3 class="font-bold text-xl mb-2">Servicio Técnico y Mantenimiento</h3>
+        <p>Reparación, optimización y mantenimiento preventivo de equipos informáticos.</p>
+      </div>
+      <div>
+        <div class="text-blue-600 text-4xl mb-2">💻</div>
+        <h3 class="font-bold text-xl mb-2">Consultoría y Masterización</h3>
+        <p>Asesoría profesional, instalación y masterización de Windows y servidores.</p>
+      </div>
+      <div>
+        <div class="text-blue-600 text-4xl mb-2">🌐</div>
+        <h3 class="font-bold text-xl mb-2">Desarrollo Web y Software</h3>
+        <p>Creación de páginas web y software a medida para potenciar tu negocio.</p>
+      </div>
+    </div>
+  </section>
+  <section id="nosotros" class="container mx-auto px-4 py-16 text-center">
+    <h2 class="text-3xl font-bold mb-4">¿Quiénes Somos?</h2>
+    <p class="max-w-2xl mx-auto">
+      En SolucionaTI somos un equipo apasionado por la tecnología, con años de experiencia ayudando a empresas y particulares a resolver sus desafíos informáticos. Nos enfocamos en la calidad, la confianza y la atención personalizada.
+    </p>
+  </section>
+  <section id="contacto" class="bg-gray-100 py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Contacto</h2>
+      <p class="mb-6">¿Tienes una consulta? Completa el formulario y te responderemos a la brevedad.</p>
+      <form id="contactForm" class="max-w-md mx-auto">
+        <input id="nombre" type="text" placeholder="Tu nombre completo" class="w-full px-4 py-2 mb-4 border rounded" required>
+        <input id="telefono" type="tel" placeholder="Tu número de teléfono" class="w-full px-4 py-2 mb-4 border rounded" required>
+        <input id="email" type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-2 mb-4 border rounded" required>
+        <textarea id="message" placeholder="Tu mensaje" class="w-full px-4 py-2 mb-4 border rounded" required></textarea>
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">Enviar Mensaje</button>
+        <div id="formSuccess" class="hidden mt-4 text-green-600 font-semibold">¡Gracias! Tu mensaje ha sido enviado.</div>
+        <div id="formError" class="hidden mt-4 text-red-600 font-semibold">Por favor, completa todos los campos correctamente.</div>
+      </form>
+    </div>
+  </section>
+  <footer class="bg-white py-6 text-center text-gray-500">
+    &copy; 2025 SolucionaTI. Todos los derechos reservados.
+  </footer>
+  
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/5493517734676" target="_blank" class="whatsapp-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="whatsapp-icon">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </a>
+
+  <!-- Chatbot -->
+<div id="chatbot-container" class="chatbot-container">
+  <div id="chatbot-header" class="chatbot-header">
+    <div class="chatbot-title">Asistente Virtual</div>
+    <button id="chatbot-toggle" class="chatbot-toggle">−</button>
+  </div>
+  <div id="chatbot-body" class="chatbot-body">
+    <div id="chatbot-messages" class="chatbot-messages">
+      <div class="message bot-message">
+        ¡Hola! Soy el asistente virtual de SolucionaTI. ¿En qué puedo ayudarte hoy?
+      </div>
+    </div>
+    <div class="chatbot-input-container">
+      <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Escribe tu mensaje...">
+      <button id="chatbot-send" class="chatbot-send">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Botón para abrir el chatbot cuando está cerrado -->
+<div id="chatbot-button" class="chatbot-button hidden">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+  </svg>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>
