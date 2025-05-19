@@ -4,20 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SolucionaTI - Soluciones Informáticas</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-900">
-  <header class="bg-white shadow">
-    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">SolucionaTI</h1>
-      <nav>
-        <a href="#servicios" class="mx-2 text-gray-700 hover:text-blue-600 nav-link">Servicios</a>
-        <a href="#nosotros" class="mx-2 text-gray-700 hover:text-blue-600 nav-link">Nosotros</a>
-        <a href="#contacto" class="mx-2 text-gray-700 hover:text-blue-600 nav-link">Contacto</a>
-      </nav>
+  <header class="bg-white shadow fixed w-full top-0 z-50">
+    <div class="container mx-auto px-4 py-6">
+        <!-- Desktop -->
+        <div class="hidden md:flex justify-between items-center">
+            <h1 class="text-2xl font-bold">SolucionaTI</h1>
+            <nav>
+                <a href="#servicios" class="mx-2 text-gray-700 hover:text-blue-600 nav-link">Servicios</a>
+                <a href="#nosotros" class="mx-2 text-gray-700 hover:text-blue-600 nav-link">Nosotros</a>
+                <a href="#contacto" class="mx-2 text-gray-700 hover:text-blue-600 nav-link">Contacto</a>
+            </nav>
+        </div>
+        <!-- Móvil -->
+        <div class="flex md:hidden justify-between items-center">
+            <h1 class="text-xl font-bold">SolucionaTI</h1>
+            <button id="menuBtn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path class="menu-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    <path class="menu-close hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Menú móvil -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <nav class="flex flex-col space-y-4 py-4">
+                <a href="#servicios" class="text-gray-700 hover:text-blue-600 nav-link mobile-link">Servicios</a>
+                <a href="#nosotros" class="text-gray-700 hover:text-blue-600 nav-link mobile-link">Nosotros</a>
+                <a href="#contacto" class="text-gray-700 hover:text-blue-600 nav-link mobile-link">Contacto</a>
+            </nav>
+        </div>
     </div>
-  </header>
+</header>
+<!-- Espaciador para header fijo -->
+<div class="h-24"></div>
   <main class="container mx-auto px-4 py-16 flex flex-col items-center text-center">
     <h2 class="text-4xl font-extrabold mb-4">Tecnología que impulsa tu negocio</h2>
     <p class="text-lg mb-8 max-w-xl">

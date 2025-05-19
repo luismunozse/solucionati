@@ -1,57 +1,90 @@
-// Scroll suave para navegacion (por si el navegador no soporta scroll-behavior)
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const targetId = this.getAttribute('href').substring(1);
-    const target = document.getElementById(targetId);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+document.addEventListener('DOMContentLoaded', function() {
+  // Scroll suave para navegación
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Menú hamburguesa
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuOpen = menuBtn.querySelector('.menu-open');
+  const menuClose = menuBtn.querySelector('.menu-close');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    menuOpen.classList.toggle('hidden');
+    menuClose.classList.toggle('hidden');
+  }
+
+  menuBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+      toggleMenu();
     }
   });
-});
 
-// Formulario de contacto
-const form = document.getElementById('contactForm');
-const nombre = document.getElementById('nombre');
-const telefono = document.getElementById('telefono');
-const email = document.getElementById('email');
-const message = document.getElementById('message');
-const formSuccess = document.getElementById('formSuccess');
-const formError = document.getElementById('formError');
+  // Formulario de contacto
+  const form = document.getElementById('contactForm');
+  const nombre = document.getElementById('nombre');
+  const telefono = document.getElementById('telefono');
+  const email = document.getElementById('email');
+  const message = document.getElementById('message');
+  const formSuccess = document.getElementById('formSuccess');
+  // Si tienes un div con id="formError", descomenta la siguiente línea:
+  // const formError = document.getElementById('formError');
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  formSuccess.classList.add('hidden');
-  formError.classList.add('hidden');
-  
-  // Validación simple
-  if (
-    nombre.value.trim() === '' || 
-    telefono.value.trim() === '' || 
-    email.value.trim() === '' || 
-    message.value.trim() === '' || 
-    !email.value.includes('@')
-  ) {
-    formError.classList.remove('hidden');
-    return;
-  }
-  
-  // Validación básica de teléfono (al menos 6 dígitos)
-  const telefonoRegex = /\d{6,}/;
-  if (!telefonoRegex.test(telefono.value.replace(/\D/g, ''))) {
-    formError.classList.remove('hidden');
-    formError.textContent = 'Por favor, ingresa un número de teléfono válido.';
-    return;
-  }
-  
-  // Simular envío exitoso
-  formSuccess.classList.remove('hidden');
-  form.reset();
-  formError.textContent = 'Por favor, completa todos los campos correctamente.';
-});
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    formSuccess.classList.add('hidden');
+    // Si usas formError, descomenta la siguiente línea:
+    // formError.classList.add('hidden');
+    
+    // Validación simple
+    if (
+      nombre.value.trim() === '' || 
+      telefono.value.trim() === '' || 
+      email.value.trim() === '' || 
+      message.value.trim() === '' || 
+      !email.value.includes('@')
+    ) {
+      // Si usas formError, descomenta:
+      // formError.classList.remove('hidden');
+      return;
+    }
+    
+    // Validación básica de teléfono (al menos 6 dígitos)
+    const telefonoRegex = /\d{6,}/;
+    if (!telefonoRegex.test(telefono.value.replace(/\D/g, ''))) {
+      // Si usas formError, descomenta:
+      // formError.classList.remove('hidden');
+      // formError.textContent = 'Por favor, ingresa un número de teléfono válido.';
+      return;
+    }
+    
+    // Simular envío exitoso
+    formSuccess.classList.remove('hidden');
+    form.reset();
+    // Si usas formError, descomenta:
+    // formError.textContent = 'Por favor, completa todos los campos correctamente.';
+  });
 
-// Chatbot functionality
-document.addEventListener('DOMContentLoaded', function() {
+  // Chatbot functionality
   const chatbotContainer = document.getElementById('chatbot-container');
   const chatbotHeader = document.getElementById('chatbot-header');
   const chatbotToggle = document.getElementById('chatbot-toggle');
@@ -60,31 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatbotInput = document.getElementById('chatbot-input');
   const chatbotSend = document.getElementById('chatbot-send');
 
-  const form = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar la redirección de Formsubmit
-
-    // Enviar el formulario usando AJAX
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-    })
-    .then(response => {
-      if (response.ok) {
-        // Mostrar el mensaje de éxito
-        formSuccess.classList.remove('hidden');
-        form.reset(); // Limpiar el formulario
-      } else {
-        // Manejar errores (opcional)
-        console.error('Error al enviar el formulario');
-        alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
-      }
-    });
-  });
-
-  // Hacer visible el chatbot
+  // Hacer visible el chatbot con animación
   setTimeout(() => {
     chatbotContainer.style.opacity = '1';
   }, 1500);
@@ -114,12 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
       chatbotContainer.classList.add('minimized');
       chatbotToggle.textContent = '+';
     }
-  }
-
-  // Función para cerrar completamente el chatbot
-  function closeChatbot() {
-    chatbotContainer.classList.add('hidden');
-    chatbotButton.classList.remove('hidden');
   }
 
   // Función para abrir el chatbot
@@ -173,12 +176,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 500);
   }
 
-  // Event listeners
+  // Event listeners del chatbot
   chatbotHeader.addEventListener('click', toggleChatbot);
   chatbotButton.addEventListener('click', openChatbot);
-  
   chatbotSend.addEventListener('click', processUserInput);
-  
   chatbotInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
       processUserInput();
